@@ -1,4 +1,6 @@
 import type { Preview } from "@storybook/web-components";
+import "../src/normalize.css";
+import "../src/style.css";
 
 const preview: Preview = {
   parameters: {
