@@ -1,0 +1,66 @@
+{
+  "id": "d3",
+  "name": "agumon",
+  "motions": {
+    "idle": {
+      "path": "/digimons/d3_idle/d3_idle",
+      "frames": 7,
+      "duration": 1000
+    },
+    "walk": {
+      "path": "/digimons/d3_walk/d3_walk",
+      "frames": 8,
+      "duration": 1000
+    },
+    "eat": {
+      "path": "/digimons/d3_eat/d3_eat",
+      "frames": 2,
+      "duration": 400
+    },
+    "angry": {
+      "path": "/digimons/d3_angry/d3_angry",
+      "frames": 2,
+      "duration": 400
+    },
+    "win": {
+      "path": "/digimons/d3_win/d3_win",
+      "frames": 2,
+      "duration": 400
+    },
+    "lose": {
+      "path": "/digimons/d3_lose/d3_lose",
+      "frames": 1,
+      "duration": 1000
+    },
+    "atk01": {
+      "path": "/digimons/d3_atk01/d3_atk01",
+      "frames": 10,
+      "duration": 1000
+    },
+    "atk02": {
+      "path": "/digimons/d3_atk02/d3_atk02",
+      "frames": 10,
+      "duration": 1000
+    },
+    "atkSP": {
+      "path": "/digimons/d3_atkSP/d3_atkSP",
+      "frames": 24,
+      "duration": 2400
+    },
+    "block": {
+      "path": "/digimons/d3_block/d3_block",
+      "frames": 1,
+      "duration": 1000
+    },
+    "dmg": {
+      "path": "/digimons/d3_dmg/d3_dmg",
+      "frames": 10,
+      "duration": 1000
+    },
+    "jump": {
+      "path": "/digimons/d3_jump/d3_jump",
+      "frames": 1,
+      "duration": 1000
+    }
+  }
+}
