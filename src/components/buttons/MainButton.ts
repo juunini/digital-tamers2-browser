@@ -1,4 +1,7 @@
+import { calculteRate } from "../../lib/calculateRate";
+
 export class MainButton extends HTMLElement {
+  private readonly resizeEvent = this.resize.bind(this);
   private readonly shadow = this.attachShadow({ mode: "closed" });
   private readonly img = document.createElement("img");
   private readonly icon = document.createElement("img");
@@ -50,6 +53,13 @@ export class MainButton extends HTMLElement {
     if (this.getAttribute("color") === null) {
       this.img.src = "/buttons/primary_button.png";
     }
+
+    this.resize();
+    window.addEventListener("resize", this.resizeEvent);
+  }
+
+  disconnectedCallback() {
+    window.removeEventListener("resize", this.resizeEvent);
   }
 
   attributeChangedCallback(name: string, oldValue: string, newValue: string) {
@@ -119,36 +129,23 @@ export class MainButton extends HTMLElement {
     }
   }
 
+  private resize() {
+    const zoom = calculteRate();
+    this.style.zoom = String(zoom);
+    this.textWrapper.style.textShadow = `-${zoom}px ${zoom}px 0 #313131,
+                                         ${zoom}px ${zoom}px 0 #313131,
+                                         ${zoom}px -${zoom}px 0 #313131,
+                                         -${zoom}px -${zoom}px 0 #313131;`;
+  }
+
   private setStyles(styleSheet: HTMLStyleElement) {
-    let buttonSizeRate = 1;
-
-    if (window.innerWidth <= 568) {
-      buttonSizeRate = 1.2;
-    }
-
-    if (window.innerWidth > 568 && window.innerWidth <= 896) {
-      buttonSizeRate = 2;
-    }
-
-    if (window.innerWidth > 896 && window.innerWidth <= 1440) {
-      buttonSizeRate = 2.5;
-    }
-
-    if (window.innerWidth > 1440 && window.innerWidth <= 1920) {
-      buttonSizeRate = 3;
-    }
-
-    if (window.innerWidth > 1920) {
-      buttonSizeRate = 4;
-    }
-
     this.style.display = "flex";
 
     styleSheet.textContent = `
       button {
         position: relative;
-        width: ${this.width * buttonSizeRate}px;
-        height: ${this.height * buttonSizeRate}px;
+        width: ${this.width}px;
+        height: ${this.height}px;
         border: none;
         background: none;
         cursor: pointer;
@@ -161,17 +158,13 @@ export class MainButton extends HTMLElement {
         align-items: center;
         width: 100%;
         height: 100%;
-        padding: ${this.paddingTop * buttonSizeRate}px ${
-      this.paddingRight * buttonSizeRate
-    }px 0 ${this.paddingLeft * buttonSizeRate}px;
-        font-size: ${this.fontSize * buttonSizeRate}px;
-        line-height: ${(this.fontSize - 3) * buttonSizeRate}px;
+        padding: ${this.paddingTop}px ${this.paddingRight}px 0 ${
+      this.paddingLeft
+    }px;
+        font-size: ${this.fontSize}px;
+        line-height: ${this.fontSize - 3}px;
         font-family: "04b03", sans-serif;
         color: #efffff;
-        text-shadow: -${buttonSizeRate}px ${buttonSizeRate}px 0 #313131,
-                      ${buttonSizeRate}px ${buttonSizeRate}px 0 #313131,
-                      ${buttonSizeRate}px -${buttonSizeRate}px 0 #313131,
-                      -${buttonSizeRate}px -${buttonSizeRate}px 0 #313131;
         box-sizing: border-box;
       }
 
@@ -191,10 +184,10 @@ export class MainButton extends HTMLElement {
       .icon {
         position: absolute;
         z-index: -1;
-        top: ${this.iconTop * buttonSizeRate}px;
-        right: ${this.iconRight * buttonSizeRate}px;
-        width: ${this.iconWidth * buttonSizeRate}px;
-        height: ${this.iconHeight * buttonSizeRate}px;
+        top: ${this.iconTop}px;
+        right: ${this.iconRight}px;
+        width: ${this.iconWidth}px;
+        height: ${this.iconHeight}px;
       }
     `;
   }

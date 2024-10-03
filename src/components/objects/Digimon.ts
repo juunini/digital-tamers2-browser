@@ -1,3 +1,4 @@
+import { calculteRate } from "../../lib/calculateRate";
 import { DigimonMotion } from "./Digimon.type";
 import { DigimonInfo } from "./DigimonInfo.interface";
 
@@ -7,9 +8,9 @@ interface DigimonMotionProps {
 }
 
 export class Digimon extends HTMLElement {
+  private readonly resizeEvent = this.resize.bind(this);
   private readonly shadow = this.attachShadow({ mode: "closed" });
   public readonly img = document.createElement("img");
-  private readonly styleSheet = document.createElement("style");
 
   public name: string = "";
   public digimonID: string = "";
@@ -26,22 +27,21 @@ export class Digimon extends HTMLElement {
   }
 
   connectedCallback() {
-    this.style.display = "flex";
+    this.style.display = "inline-block";
 
     this.shadow.appendChild(this.img);
-    this.shadow.appendChild(this.styleSheet);
-
-    this.styleSheet.textContent = `
-      img {
-        zoom: 3;
-      }
-    `;
 
     this.initAttributes();
     this.fetchInfo();
+
+    this.resize();
+
+    window.addEventListener("resize", this.resizeEvent);
   }
 
-  disconnectedCallback() {}
+  disconnectedCallback() {
+    window.removeEventListener("resize", this.resizeEvent);
+  }
 
   adoptedCallback() {}
 
@@ -64,7 +64,14 @@ export class Digimon extends HTMLElement {
   private fetchInfo() {
     fetch(`/digimons/${this.digimonID}.json`)
       .then((response) => response.json())
-      .then((data) => (this.info = data));
+      .then((data) => {
+        this.info = data;
+        this.img.src = `${this.info.motions.idle.path}_0.png`;
+      });
+  }
+
+  private resize() {
+    this.style.zoom = String(calculteRate());
   }
 
   public stop() {
