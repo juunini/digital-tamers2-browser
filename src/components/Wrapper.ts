@@ -4,7 +4,7 @@ import {
   constantWidth,
 } from "@/lib/calculateRate";
 
-export class Background extends HTMLElement {
+export class Wrapper extends HTMLElement {
   private readonly resizeEvent = this.resize.bind(this);
 
   static get observedAttributes() {
@@ -50,4 +50,4 @@ export class Background extends HTMLElement {
   }
 }
 
-customElements.define("dt2-background", Background);
+customElements.define("dt2-wrapper", Wrapper);
