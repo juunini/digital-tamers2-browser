@@ -1,5 +1,5 @@
-const constantWidth = 538;
-const constantHeight = 300;
+export const constantWidth = 538;
+export const constantHeight = 300;
 
 export function calculteRate(): number {
   const currentWidth = window.innerWidth / constantWidth;
