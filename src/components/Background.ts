@@ -2,7 +2,7 @@ import {
   calculteRate,
   constantHeight,
   constantWidth,
-} from "../lib/calculateRate";
+} from "@/lib/calculateRate";
 
 export class Background extends HTMLElement {
   private readonly resizeEvent = this.resize.bind(this);

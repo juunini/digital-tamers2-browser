@@ -1,4 +1,4 @@
-import { calculteRate } from "../../lib/calculateRate";
+import { calculteRate } from "@/lib/calculateRate";
 
 export class MainButton extends HTMLElement {
   private readonly resizeEvent = this.resize.bind(this);
