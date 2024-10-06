@@ -1,9 +1,9 @@
 import { html } from "lit";
 import type { Meta } from "@storybook/web-components";
 
-import "@/components/Wrapper";
-import "@/components/Ground";
-import "@/components/Field";
+import "@/components/layouts/Wrapper";
+import "@/components/layouts/Ground";
+import "@/components/layouts/Field";
 import "@/components/objects/Digimon";
 
 export default {

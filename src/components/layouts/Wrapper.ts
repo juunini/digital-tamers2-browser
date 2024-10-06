@@ -24,6 +24,10 @@ export class Wrapper extends HTMLElement {
     this.style.height = `${constantHeight}px`;
     this.style.flexDirection = "column";
     this.style.justifyContent = "flex-end";
+
+    if (this.getAttribute("src") === null || this.getAttribute("src") === "")
+      return;
+
     this.style.background = `url(${this.getAttribute(
       "src"
     )}) no-repeat center center`;
@@ -36,12 +40,11 @@ export class Wrapper extends HTMLElement {
   adoptedCallback() {}
 
   attributeChangedCallback(name: string, oldValue: string, newValue: string) {
-    if (oldValue === newValue) {
-      return;
-    }
+    if (oldValue === newValue) return;
 
     if (name === "src") {
-      this.style.background = `url(${newValue}) no-repeat center center`;
+      this.style.background =
+        newValue === "" ? "none" : `url(${newValue}) no-repeat center center`;
     }
   }
 

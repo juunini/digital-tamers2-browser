@@ -12,9 +12,8 @@ export class Field extends HTMLElement {
     this.style.flex = "1";
     this.style.position = "relative";
 
-    if (this.getAttribute("src") === null) {
+    if (this.getAttribute("src") === null || this.getAttribute("src") === "")
       return;
-    }
 
     this.style.background = `url(${this.getAttribute(
       "src"
@@ -26,12 +25,11 @@ export class Field extends HTMLElement {
   adoptedCallback() {}
 
   attributeChangedCallback(name: string, oldValue: string, newValue: string) {
-    if (oldValue === newValue) {
-      return;
-    }
+    if (oldValue === newValue) return;
 
     if (name === "src") {
-      this.style.background = `url(${newValue}) no-repeat center center`;
+      this.style.background =
+        newValue === "" ? "none" : `url(${newValue}) no-repeat center center`;
     }
   }
 }

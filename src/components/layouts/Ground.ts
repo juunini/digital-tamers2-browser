@@ -10,13 +10,12 @@ export class Ground extends HTMLElement {
   }
 
   connectedCallback() {
+    this.style.display = "block";
     this.height = Number(this.getAttribute("height")) || this.height;
-
     this.style.height = `${this.height}px`;
 
-    if (this.getAttribute("src") === null) {
+    if (this.getAttribute("src") === null || this.getAttribute("src") === null)
       return;
-    }
 
     this.style.background = `url(${this.getAttribute(
       "src"
@@ -28,12 +27,11 @@ export class Ground extends HTMLElement {
   adoptedCallback() {}
 
   attributeChangedCallback(name: string, oldValue: string, newValue: string) {
-    if (oldValue === newValue) {
-      return;
-    }
+    if (oldValue === newValue) return;
 
     if (name === "src") {
-      this.style.background = `url(${newValue}) no-repeat center center`;
+      this.style.background =
+        newValue === "" ? "none" : `url(${newValue}) no-repeat center center`;
     }
   }
 }
