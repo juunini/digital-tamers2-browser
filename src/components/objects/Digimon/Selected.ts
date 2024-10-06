@@ -96,9 +96,19 @@ export class Selected extends HTMLElement {
   private readonly name = document.createElement("div");
   private readonly level = document.createElement("div");
   private readonly lv = document.createElement("div");
+  private readonly hp = document.createElement("div");
+  private _hp = 100;
 
   static get observedAttributes() {
-    return ["elemental", "attribute", "species", "stage", "name", "level"];
+    return [
+      "elemental",
+      "attribute",
+      "species",
+      "stage",
+      "name",
+      "level",
+      "hp",
+    ];
   }
 
   constructor() {
@@ -124,10 +134,8 @@ export class Selected extends HTMLElement {
     this.stage.classList.add("stage");
     this.name.classList.add("name");
     this.level.classList.add("level");
-    this.level.dataset.text = this.getAttribute("level") || "";
     this.lv.classList.add("lv");
-    this.lv.dataset.text = "LV";
-    this.name.dataset.text = this.getAttribute("name") || "";
+    this.hp.classList.add("hp");
 
     this.elemental.src =
       elementalMap[this.getAttribute("elemental") as DigimonElemental];
@@ -136,9 +144,17 @@ export class Selected extends HTMLElement {
     this.species.src =
       speciesMap[this.getAttribute("species") as DigimonSpecies];
     this.stage.src = stageMap[this.getAttribute("stage") as DigimonStage];
+
     this.name.textContent = this.getAttribute("name");
     this.level.textContent = this.getAttribute("level");
     this.lv.textContent = "LV";
+
+    this.level.dataset.text = this.getAttribute("level") || "1";
+    this.lv.dataset.text = "LV";
+    this.name.dataset.text = this.getAttribute("name") || "unknown";
+
+    this._hp = Number(this.getAttribute("hp")) || 100;
+    this.hp.style.width = `calc(${this._hp}% - 2px)`;
   }
 
   connectedCallback() {
@@ -155,6 +171,7 @@ export class Selected extends HTMLElement {
     this.opponentWrapper.appendChild(this.name);
     this.opponentWrapper.appendChild(this.level);
     this.opponentWrapper.appendChild(this.lv);
+    this.opponentWrapper.appendChild(this.hp);
 
     this.styleSheet.textContent = `
       div {
@@ -165,6 +182,7 @@ export class Selected extends HTMLElement {
 
       img {
         position: absolute;
+        z-index: -1;
       }
 
       .opponent0 {
@@ -208,6 +226,7 @@ export class Selected extends HTMLElement {
         bottom: 12px;
         border-radius: 50%;
         box-shadow: 0 0 2px 1px #40e000;
+        outline: 1px solid #40e000;
       }
 
       .stage {
@@ -238,11 +257,11 @@ export class Selected extends HTMLElement {
       }
 
       .level {
-        left: 68px;
-        bottom: 12px;
+        left: 67px;
+        bottom: 14px;
         width: auto;
+        font-size: 10px;
         font-family: "digivolve", sans-serif;
-        transform: scaleX(1.2);
         text-shadow: none;
       }
 
@@ -269,6 +288,15 @@ export class Selected extends HTMLElement {
         width: 4px;
         font-size: 4px;
         overflow-wrap: break-word;
+      }
+
+      .hp {
+        position: absolute;
+        top: 16px;
+        left: 1px;
+        height: 4px;
+        border-radius: 4px;
+        background: #40e000;
       }
     `;
   }
@@ -303,6 +331,12 @@ export class Selected extends HTMLElement {
 
     if (name === "level") {
       this.level.textContent = newValue;
+      return;
+    }
+
+    if (name === "hp") {
+      this._hp = Number(newValue);
+      this.hp.style.width = `calc(${newValue}% - 2px)`;
       return;
     }
   }

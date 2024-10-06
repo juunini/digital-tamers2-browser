@@ -1,6 +1,10 @@
 export interface DigimonInfo {
   id: string;
   name: string;
+  elemental: string;
+  attribute: string;
+  species: string;
+  stage: string;
   motions: {
     idle: DigimonSprites;
     walk: DigimonSprites;

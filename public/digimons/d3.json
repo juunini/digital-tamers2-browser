@@ -1,6 +1,10 @@
 {
   "id": "d3",
   "name": "agumon",
+  "elemental": "fire",
+  "attribute": "vaccine",
+  "stage": "rookie",
+  "species": "dragon",
   "motions": {
     "idle": {
       "path": "/digimons/d3_idle/d3_idle",
