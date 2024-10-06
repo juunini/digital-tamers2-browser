@@ -11,3 +11,48 @@ export type DigimonMotion =
   | "lose"
   | "walk"
   | "win";
+
+export type DigimonElemental =
+  | "fire"
+  | "ice"
+  | "earth"
+  | "light"
+  | "patch black"
+  | "steel"
+  | "thunder"
+  | "water"
+  | "wind"
+  | "wood"
+  | "neutral";
+
+export type DigimonAttribute =
+  | "none"
+  | "data"
+  | "virus"
+  | "vaccine"
+  | "unknown";
+
+export type DigimonSpecies =
+  | "none"
+  | "dragon"
+  | "beast"
+  | "insect"
+  | "holy"
+  | "bird"
+  | "aquatic"
+  | "machine"
+  | "dark"
+  | "plant";
+
+export type DigimonStage =
+  | "no"
+  | "baby1"
+  | "baby2"
+  | "rookie"
+  | "champion"
+  | "ultimate"
+  | "mega"
+  | "ultra"
+  | "no level"
+  | "unknown"
+  | "egg";

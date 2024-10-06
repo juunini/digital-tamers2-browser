@@ -29,6 +29,13 @@ export const digimon = () => html`
   </dt2-wrapper>
 
   <script>
+    agumon.status = {
+      ...agumon.status,
+      maxHP: 100,
+      hp: 80,
+      level: 32,
+    };
+
     window.addEventListener("click", (e) => {
       if (e.target.tagName === "DT2-DIGIMON") {
         e.target.setAttribute("selected", "");
@@ -39,23 +46,4 @@ export const digimon = () => html`
       }
     });
   </script>
-`;
-
-export const selected = () => html`
-  <dt2-wrapper src="/backgrounds/bg_Btl_Snow_Land_0.png">
-    <dt2-field>
-      <dt2-digimon
-        id="agumon"
-        digimon-id="d3"
-        left="100"
-        bottom="0"
-        selected
-        max-hp="100"
-        hp="100"
-        level="14"
-      >
-      </dt2-digimon>
-    </dt2-field>
-    <dt2-ground></dt2-ground>
-  </dt2-wrapper>
 `;

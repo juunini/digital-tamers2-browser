@@ -20,6 +20,11 @@
   src: url(/fonts/pixel_digivolve/Pixel_Digivolve_Italic.otf);
 }
 
+@font-face {
+  font-family: "NeoDunggeunmoPro";
+  src: url(/fonts/NeoDunggeunmoPro-Regular.woff2);
+}
+
 :root {
   font-family: "minecraftia", sans-serif;
 }
@@ -29,4 +34,11 @@
   margin: 0;
   padding: 0;
   font-family: "minecraftia", sans-serif;
+}
+
+body {
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none
 }

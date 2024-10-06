@@ -6,65 +6,107 @@
   "stage": "rookie",
   "species": "dragon",
   "motions": {
-    "idle": {
-      "path": "/digimons/d3_idle/d3_idle",
-      "frames": 7,
-      "duration": 1000
-    },
-    "walk": {
-      "path": "/digimons/d3_walk/d3_walk",
-      "frames": 8,
-      "duration": 1000
-    },
-    "eat": {
-      "path": "/digimons/d3_eat/d3_eat",
-      "frames": 2,
-      "duration": 400
-    },
-    "angry": {
-      "path": "/digimons/d3_angry/d3_angry",
-      "frames": 2,
-      "duration": 400
-    },
-    "win": {
-      "path": "/digimons/d3_win/d3_win",
-      "frames": 2,
-      "duration": 400
-    },
-    "lose": {
-      "path": "/digimons/d3_lose/d3_lose",
-      "frames": 1,
-      "duration": 1000
-    },
-    "atk01": {
-      "path": "/digimons/d3_atk01/d3_atk01",
-      "frames": 10,
-      "duration": 1000
-    },
-    "atk02": {
-      "path": "/digimons/d3_atk02/d3_atk02",
-      "frames": 10,
-      "duration": 1000
-    },
-    "atkSP": {
-      "path": "/digimons/d3_atkSP/d3_atkSP",
-      "frames": 24,
-      "duration": 2400
-    },
-    "block": {
-      "path": "/digimons/d3_block/d3_block",
-      "frames": 1,
-      "duration": 1000
-    },
-    "dmg": {
-      "path": "/digimons/d3_dmg/d3_dmg",
-      "frames": 10,
-      "duration": 1000
-    },
-    "jump": {
-      "path": "/digimons/d3_jump/d3_jump",
-      "frames": 1,
-      "duration": 1000
-    }
+    "idle": [
+      "/digimons/d3_idle/d3_idle_0.png",
+      "/digimons/d3_idle/d3_idle_1.png",
+      "/digimons/d3_idle/d3_idle_2.png",
+      "/digimons/d3_idle/d3_idle_3.png",
+      "/digimons/d3_idle/d3_idle_4.png",
+      "/digimons/d3_idle/d3_idle_5.png",
+      "/digimons/d3_idle/d3_idle_6.png"
+    ],
+    "walk": [
+      "/digimons/d3_walk/d3_walk_0.png",
+      "/digimons/d3_walk/d3_walk_1.png",
+      "/digimons/d3_walk/d3_walk_2.png",
+      "/digimons/d3_walk/d3_walk_3.png",
+      "/digimons/d3_walk/d3_walk_4.png",
+      "/digimons/d3_walk/d3_walk_5.png",
+      "/digimons/d3_walk/d3_walk_6.png",
+      "/digimons/d3_walk/d3_walk_7.png"
+    ],
+    "eat": [
+      "/digimons/d3_eat/d3_eat_0.png",
+      "/digimons/d3_eat/d3_eat_1.png"
+    ],
+    "angry": [
+      "/digimons/d3_angry/d3_angry_0.png",
+      "/digimons/d3_angry/d3_angry_1.png"
+    ],
+    "win": [
+      "/digimons/d3_win/d3_win_0.png",
+      "/digimons/d3_win/d3_win_1.png"
+    ],
+    "lose": [
+      "/digimons/d3_lose/d3_lose_0.png"
+    ],
+    "atk01": [
+      "/digimons/d3_atk01/d3_atk01_0.png",
+      "/digimons/d3_atk01/d3_atk01_1.png",
+      "/digimons/d3_atk01/d3_atk01_2.png",
+      "/digimons/d3_atk01/d3_atk01_3.png",
+      "/digimons/d3_atk01/d3_atk01_4.png",
+      "/digimons/d3_atk01/d3_atk01_5.png",
+      "/digimons/d3_atk01/d3_atk01_6.png",
+      "/digimons/d3_atk01/d3_atk01_7.png",
+      "/digimons/d3_atk01/d3_atk01_8.png",
+      "/digimons/d3_atk01/d3_atk01_9.png"
+    ],
+    "atk02": [
+      "/digimons/d3_atk02/d3_atk02_0.png",
+      "/digimons/d3_atk02/d3_atk02_1.png",
+      "/digimons/d3_atk02/d3_atk02_2.png",
+      "/digimons/d3_atk02/d3_atk02_3.png",
+      "/digimons/d3_atk02/d3_atk02_4.png",
+      "/digimons/d3_atk02/d3_atk02_5.png",
+      "/digimons/d3_atk02/d3_atk02_6.png",
+      "/digimons/d3_atk02/d3_atk02_7.png",
+      "/digimons/d3_atk02/d3_atk02_8.png",
+      "/digimons/d3_atk02/d3_atk02_9.png"
+    ],
+    "atkSP": [
+      "/digimons/d3_atkSP/d3_atkSP_0.png",
+      "/digimons/d3_atkSP/d3_atkSP_1.png",
+      "/digimons/d3_atkSP/d3_atkSP_2.png",
+      "/digimons/d3_atkSP/d3_atkSP_3.png",
+      "/digimons/d3_atkSP/d3_atkSP_4.png",
+      "/digimons/d3_atkSP/d3_atkSP_5.png",
+      "/digimons/d3_atkSP/d3_atkSP_6.png",
+      "/digimons/d3_atkSP/d3_atkSP_7.png",
+      "/digimons/d3_atkSP/d3_atkSP_8.png",
+      "/digimons/d3_atkSP/d3_atkSP_9.png",
+      "/digimons/d3_atkSP/d3_atkSP_10.png",
+      "/digimons/d3_atkSP/d3_atkSP_11.png",
+      "/digimons/d3_atkSP/d3_atkSP_12.png",
+      "/digimons/d3_atkSP/d3_atkSP_13.png",
+      "/digimons/d3_atkSP/d3_atkSP_14.png",
+      "/digimons/d3_atkSP/d3_atkSP_15.png",
+      "/digimons/d3_atkSP/d3_atkSP_16.png",
+      "/digimons/d3_atkSP/d3_atkSP_17.png",
+      "/digimons/d3_atkSP/d3_atkSP_18.png",
+      "/digimons/d3_atkSP/d3_atkSP_19.png",
+      "/digimons/d3_atkSP/d3_atkSP_20.png",
+      "/digimons/d3_atkSP/d3_atkSP_21.png",
+      "/digimons/d3_atkSP/d3_atkSP_22.png",
+      "/digimons/d3_atkSP/d3_atkSP_23.png"
+    ],
+    "block": [
+      "/digimons/d3_block/d3_block_0.png"
+    ],
+    "dmg": [
+      "/digimons/d3_dmg/d3_dmg_0.png",
+      "/digimons/d3_dmg/d3_dmg_1.png",
+      "/digimons/d3_dmg/d3_dmg_2.png",
+      "/digimons/d3_dmg/d3_dmg_3.png",
+      "/digimons/d3_dmg/d3_dmg_4.png",
+      "/digimons/d3_dmg/d3_dmg_5.png",
+      "/digimons/d3_dmg/d3_dmg_6.png",
+      "/digimons/d3_dmg/d3_dmg_7.png",
+      "/digimons/d3_dmg/d3_dmg_8.png",
+      "/digimons/d3_dmg/d3_dmg_9.png"
+    ],
+    "jump": [
+      "/digimons/d3_jump/d3_jump.png"
+    ]
   }
 }

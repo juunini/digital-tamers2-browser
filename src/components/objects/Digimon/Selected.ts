@@ -1,39 +1,9 @@
-type DigimonElemental =
-  | "fire"
-  | "ice"
-  | "earth"
-  | "light"
-  | "patch black"
-  | "steel"
-  | "thunder"
-  | "water"
-  | "wind"
-  | "wood"
-  | "neutral";
-type DigimonAttribute = "none" | "data" | "virus" | "vaccine" | "unknown";
-type DigimonSpecies =
-  | "none"
-  | "dragon"
-  | "beast"
-  | "insect"
-  | "holy"
-  | "bird"
-  | "aquatic"
-  | "machine"
-  | "dark"
-  | "plant";
-type DigimonStage =
-  | "no"
-  | "baby1"
-  | "baby2"
-  | "rookie"
-  | "champion"
-  | "ultimate"
-  | "mega"
-  | "ultra"
-  | "no level"
-  | "unknown"
-  | "egg";
+import type {
+  DigimonAttribute,
+  DigimonElemental,
+  DigimonSpecies,
+  DigimonStage,
+} from "./Digimon.type";
 
 const elementalMap = {
   fire: "/spr_ElemAttribute/spr_ElemAttribute_0.png",
