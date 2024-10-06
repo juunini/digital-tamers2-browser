@@ -16,15 +16,11 @@ export const wrapper = () => html`
     <dt2-field>
       <dt2-digimon
         id="agumon"
-        name="agumon"
         digimon-id="d3"
-        align="right"
+        left="20"
+        bottom="0"
       ></dt2-digimon>
     </dt2-field>
     <dt2-ground></dt2-ground>
   </dt2-wrapper>
-
-  <script>
-    agumon.position(0, 0);
-  </script>
 `;
