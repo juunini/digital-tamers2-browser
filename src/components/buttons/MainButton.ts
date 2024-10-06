@@ -1,24 +1,10 @@
-import { calculteRate } from "@/lib/calculateRate";
-
 export class MainButton extends HTMLElement {
-  private readonly resizeEvent = this.resize.bind(this);
   private readonly shadow = this.attachShadow({ mode: "closed" });
   private readonly img = document.createElement("img");
   private readonly icon = document.createElement("img");
   private readonly textWrapper = document.createElement("div");
   private readonly line1 = document.createElement("span");
   private readonly line2 = document.createElement("span");
-
-  private readonly width = 65;
-  private readonly height = 45;
-  private readonly iconWidth = 20;
-  private readonly iconHeight = 20;
-  private readonly iconTop = 4;
-  private readonly iconRight = 4;
-  private readonly paddingTop = 3;
-  private readonly paddingLeft = 3;
-  private readonly paddingRight = 8;
-  private readonly fontSize = 12;
 
   static get observedAttributes() {
     return ["src", "line1", "line2", "line1-align", "line2-align", "color"];
@@ -44,28 +30,19 @@ export class MainButton extends HTMLElement {
     this.textWrapper.appendChild(this.line2);
 
     this.img.classList.add("main-button");
-
     this.icon.classList.add("icon");
 
     this.setStyles(styleSheet);
-    window.addEventListener("resize", () => this.setStyles(styleSheet));
 
     if (this.getAttribute("color") === null) {
       this.img.src = "/buttons/primary_button.png";
     }
-
-    this.resize();
-    window.addEventListener("resize", this.resizeEvent);
   }
 
-  disconnectedCallback() {
-    window.removeEventListener("resize", this.resizeEvent);
-  }
+  disconnectedCallback() {}
 
   attributeChangedCallback(name: string, oldValue: string, newValue: string) {
-    if (oldValue === newValue) {
-      return;
-    }
+    if (oldValue === newValue) return;
 
     if (name === "src") {
       this.icon.src = newValue;
@@ -129,23 +106,14 @@ export class MainButton extends HTMLElement {
     }
   }
 
-  private resize() {
-    const zoom = calculteRate();
-    this.style.zoom = String(zoom);
-    this.textWrapper.style.textShadow = `-${zoom}px ${zoom}px 0 #313131,
-                                         ${zoom}px ${zoom}px 0 #313131,
-                                         ${zoom}px -${zoom}px 0 #313131,
-                                         -${zoom}px -${zoom}px 0 #313131;`;
-  }
-
   private setStyles(styleSheet: HTMLStyleElement) {
     this.style.display = "flex";
 
     styleSheet.textContent = `
       button {
         position: relative;
-        width: ${this.width}px;
-        height: ${this.height}px;
+        width: 65px;
+        height: 45px;
         border: none;
         background: none;
         cursor: pointer;
@@ -158,11 +126,9 @@ export class MainButton extends HTMLElement {
         align-items: center;
         width: 100%;
         height: 100%;
-        padding: ${this.paddingTop}px ${this.paddingRight}px 0 ${
-      this.paddingLeft
-    }px;
-        font-size: ${this.fontSize}px;
-        line-height: ${this.fontSize - 3}px;
+        padding: 3px 8px 0 3px;
+        font-size: 12px;
+        line-height: 9px;
         font-family: "04b03", sans-serif;
         color: #efffff;
         box-sizing: border-box;
@@ -170,11 +136,14 @@ export class MainButton extends HTMLElement {
 
       .text-wrapper span {
         transform: scaleX(0.75);
+        text-shadow: -1px 1px 0 #313131,
+                      1px 1px 0 #313131,
+                      1px -1px 0 #313131,
+                     -1px -1px 0 #313131;
       }
 
       .main-button {
         position: absolute;
-        z-index: -1;
         top: 0;
         left: 0;
         width: 100%;
@@ -183,11 +152,10 @@ export class MainButton extends HTMLElement {
 
       .icon {
         position: absolute;
-        z-index: -1;
-        top: ${this.iconTop}px;
-        right: ${this.iconRight}px;
-        width: ${this.iconWidth}px;
-        height: ${this.iconHeight}px;
+        top: 4px;
+        right: 4px;
+        width: 20px;
+        height: 20px;
       }
     `;
   }
