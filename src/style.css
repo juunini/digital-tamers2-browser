@@ -8,6 +8,18 @@
   src: url(/fonts/Minecraftia-Regular.ttf);
 }
 
+@font-face {
+  font-family: "digivolve";
+  font-style: normal;
+  src: url(/fonts/pixel_digivolve/Pixel_Digivolve.otf);
+}
+
+@font-face {
+  font-family: "digivolve";
+  font-style: italic;
+  src: url(/fonts/pixel_digivolve/Pixel_Digivolve_Italic.otf);
+}
+
 :root {
   font-family: "minecraftia", sans-serif;
 }

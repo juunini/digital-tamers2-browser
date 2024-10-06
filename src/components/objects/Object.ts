@@ -1,5 +1,5 @@
 export class Object extends HTMLElement {
-  private readonly shadow = this.attachShadow({ mode: "closed" });
+  protected readonly shadow = this.attachShadow({ mode: "closed" });
   private direction = 1;
 
   public readonly img = document.createElement("img");
